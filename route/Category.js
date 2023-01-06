@@ -1,5 +1,5 @@
-var express = require("express");
-var Category = require("../controller/Category");
+const express = require("express");
+const Category = require("../controller/Category");
 /**
  * @swagger
  * components:
@@ -58,7 +58,6 @@ var Category = require("../controller/Category");
  *        '200':
  *          description: A sucessfull response
  */
-
 const router = express.Router();
 router.get("/", Category.getCategory);
 /**
@@ -78,5 +77,4 @@ router.get("/", Category.getCategory);
  *          description: A sucessfull response
  */
 router.post("/", Category.PostCategory);
-
 module.exports = router;

@@ -1,20 +1,6 @@
 var express = require("express");
 var Syallabus = require("../controller/Syllabus");
-// const multer=require('multer');
 const path = require("path");
-
-// storage
-// const Storage=multer.diskStorage({
-//     destination:'Images',
-//     filename:(req,file,cb)=>{
-//         console.log(file,req);
-//         cb(null,Date.now()+path.extname(file.originalname))
-//     }
-// })
-
-// let upload = multer({
-//     storage:Storage
-// });
 /**
  * @swagger
  * components:

@@ -56,7 +56,7 @@ module.exports.PostSyallabus = async (req, res, upload) => {
   let newId = uuid.v4();
   console.log(req.body, newId);
   const SyallabusData = req.body;
-  SyallabusData.sectiont_id = newId;
+  SyallabusData.section_id = newId;
   SyallabusData.Section = req.body.Section;
 
   try {

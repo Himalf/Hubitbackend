@@ -24,6 +24,16 @@ const MyModel = require('../modal/Course')
  *           course_category:
  *             type: string
  *             description: this is course category
+ *           duration:
+ *             type: integer
+ *             descrption: this is course duration
+ *           image:
+ *             type: file
+ *             description: this is image
+ *           description:
+ *             type: string
+ *             description: this is description
+ *          
  *         example:
  *           _id: dfs43gfsdghshdsj
  *           course_name: kisan mahat

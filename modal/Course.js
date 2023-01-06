@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const CourseSchema = mongoose.Schema({
   course_name: String,
   course_category: String,
@@ -7,7 +7,7 @@ const CourseSchema = mongoose.Schema({
   syallabus: [
     {
       Section: String,
-      sectiont_id: String,
+      section_id: String,
       subSection: [
         {
           subSection: String,

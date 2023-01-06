@@ -12,8 +12,8 @@ const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "NEW HUBIT'S API",
-      description: "GET AND POST API OF HUB IT ",
+      title: "NEW HUBIT'S API BY HIMAL FULLEL",
+      description: "GET AND POST API OF HUB IT",
       contact: {
         name: "BACKEND DEVELOPER",
       },
@@ -21,49 +21,28 @@ const swaggerOptions = {
     },
   },
   apis: ["./route/*.js"],
-};
-
-// const swaggerOptions = {
-//     definition: {
-//         openapi: '3.0.0',
-//         info:{
-//             title: "Customer API",
-//             version: '1.0.0',
-//             ßdescription: "Customer API Information",
-//         },
-//         servers: [
-//             {
-//                 url: process.env.LOCATION
-//             }
-//         ]
-//     },
-//     apis: ["./routes/*.js"]
-// }
+}
 console.log(process.env.LOCATION);
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
 app.use(cors({ origin: "*" }));
 app.use("/public", express.static("./public"));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-
-// app.use("/public", express.static("./public"));
-// app.use("/public", express.static("public"));
 // routes import
 const Course = require("./route/Course");
 const Category = require("./route/Category");
 const Syallabus = require("./route/Syllabus");
-
+const Inquire = require("./route/Inquire");
 app.get("/", (req, res) => {
   res.send("this is for hubit");
 });
 app.use("/course", Course);
 app.use("/category", Category);
 app.use("/syallabus", Syallabus);
-// localhost:4000/course/
+app.use("/inquire",Inquire);
 // mongoodb connection
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 4000;
