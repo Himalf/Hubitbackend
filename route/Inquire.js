@@ -23,5 +23,7 @@ const router = express.Router();
  */
 
 router.get("/", Inquire.getInquire);
-router.post("/",Inquire.PostInquire);
+router.post("/", Inquire.PostInquire);
+router.delete("/:id", Inquire.DeleteInquire);
+router.put('/:id', Inquire.updateInquire);
 module.exports = router;
