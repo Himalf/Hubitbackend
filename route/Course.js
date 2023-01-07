@@ -99,7 +99,7 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-const upload = multer({storage: storage});
+const upload = multer({ storage: storage });
 router.post(
   "/files",
   upload.single("file"),
@@ -125,6 +125,6 @@ router.post(
  *              description: User that was deleted
  */
 router.delete("/:id", Course.DeleteCourse);
-router.put("/:id",Course.updateCourse)
+router.put("/:id", Course.updateCourse)
 
 module.exports = router;
