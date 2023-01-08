@@ -16,7 +16,7 @@ module.exports.PostCourse = async (req, res, upload) => {
   const courseData = req.body;
 
   try {
-    console.log(courseData,req.file,"worked");
+    console.log(courseData, req.file, "worked");
     // const file = `${process.env.APP_HOSTING_ADDRESS + req.file.filename}`;
     const url = req.protocol + "://" + req.get("host");
     const newCourse = new CourseModal({
@@ -25,7 +25,7 @@ module.exports.PostCourse = async (req, res, upload) => {
       duration: courseData.duration,
       description: courseData.description,
       syallabus: [],
-      image:req?.file?.path,
+      image: req?.file?.path,
     });
 
     await newCourse.save();
@@ -38,7 +38,7 @@ module.exports.PostCourse = async (req, res, upload) => {
 };
 
 // Update request
-module.exports.updateCourse= (req, res) => {
+module.exports.updateCourse = (req, res, uploads) => {
   CourseModal.updateOne({ _id: req.params.id }, { $set: req.body }, (error) => {
     if (error) {
       console.log(error);
@@ -50,7 +50,7 @@ module.exports.updateCourse= (req, res) => {
   });
 };
 // Delete request
-module.exports.DeleteCourse = (req,res)=>{
+module.exports.DeleteCourse = (req, res) => {
   CourseModal.findByIdAndDelete(req.params.id, (err, data) => {
     if (err) {
       return res.status(500).send(err);

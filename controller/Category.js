@@ -24,11 +24,13 @@ module.exports.PostCategory = async (req, res, upload) => {
   console.log("kfjdf===========================");
   console.log(CategoryData);
   try {
+    console.log(CategoryData, req.file, "worked")
     const url = req.protocol + "://" + req.get("host");
     const newCategory = new CategoryModal({
       category_name: CategoryData.category_name,
       color: CategoryData.color,
-      image: CategoryData.image,
+      image: req?.file?.path
+
     });
     await newCategory.save();
     res
@@ -37,4 +39,13 @@ module.exports.PostCategory = async (req, res, upload) => {
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
+};
+// Delete request
+module.exports.DeleteCategory = (req, res) => {
+  CategoryModal.findByIdAndDelete(req.params.id, (err, data) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.status(200).send(data);
+  });
 };

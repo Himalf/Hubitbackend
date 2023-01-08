@@ -1,5 +1,6 @@
 const express = require("express");
 const Category = require("../controller/Category");
+const multer = require("multer")
 /**
  * @swagger
  * components:
@@ -76,5 +77,21 @@ router.get("/", Category.getCategory);
  *        '201':
  *          description: A sucessfull response
  */
-router.post("/", Category.PostCategory);
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public");
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    },
+});
+const upload = multer({ storage: storage });
+router.post(
+    "/files",
+    upload.single("file"),
+    Category.PostCategory
+    // Course.PostCourse
+);
+router.delete("/:id", Category.DeleteCategory)
+// router.post("/", Category.PostCategory);
 module.exports = router;

@@ -125,6 +125,7 @@ router.post(
  *              description: User that was deleted
  */
 router.delete("/:id", Course.DeleteCourse);
-router.put("/:id", Course.updateCourse)
+router.put("/files/:id",
+  upload.single('file'), Course.updateCourse)
 
 module.exports = router;
