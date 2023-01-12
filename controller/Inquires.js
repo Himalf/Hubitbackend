@@ -49,7 +49,7 @@ module.exports.updateInquire = (req, res) => {
     }
   });
 }
-//   Delete request
+// Delete request   
 module.exports.DeleteInquire = (req, res) => {
   InquireModal.findByIdAndDelete(req.params.id, (err, data) => {
     if (err) {

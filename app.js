@@ -36,13 +36,15 @@ const Course = require("./route/Course");
 const Category = require("./route/Category");
 const Syallabus = require("./route/Syllabus");
 const Inquire = require("./route/Inquire");
+const QuickCall = require("./route/QuickCall");
 app.get("/", (req, res) => {
   res.send("this is for hubit");
 });
 app.use("/course", Course);
 app.use("/category", Category);
 app.use("/syallabus", Syallabus);
-app.use("/inquire",Inquire);
+app.use("/inquire", Inquire);
+app.use("/quickcall", QuickCall)
 // mongoodb connection
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 4000;
