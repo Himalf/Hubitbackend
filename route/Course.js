@@ -75,6 +75,7 @@ const MyModel = require('../modal/Course')
  */
 
 router.get("/", Course.getCourse);
+router.get("/:id", Course.getCourse);
 /**
  * @swagger
  * /course/files:

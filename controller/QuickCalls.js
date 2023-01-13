@@ -17,7 +17,6 @@ module.exports.PostQuickCall = async (req, res) => {
         name: yup.string().required("name is required"),
         phone: yup.string().required().min(10, "invalid phone"),
     })
-
     try {
         await quickCallData.validate(req.body);
         const url = req.protocol + '://' + req.get('host')
