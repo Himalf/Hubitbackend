@@ -11,7 +11,7 @@ module.exports.getCourse = async (req, res) => {
   }
 };
 // get single course
-module.exports.getCourse = async (req, res) => {
+module.exports.getCourses = async (req, res) => {
   try {
     const CourseData = await CourseModal.findById({ _id: req.params.id });
     res.status(200).json({ data: CourseData, message: "course fetched" });
