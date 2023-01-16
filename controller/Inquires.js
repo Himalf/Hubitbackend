@@ -6,7 +6,7 @@ const yup = require('yup');
 module.exports.getInquire = async (req, res) => {
   try {
     const InquireData = await InquireModal.find();
-    res.status(200).json({ data: InquireData, message: 'course fetched' })
+    res.status(200).json({ data: InquireData, message: 'inquire fetched' })
   } catch (err) {
     res.status(404).json({ messege: err.message, status: err.status })
   }
@@ -15,9 +15,9 @@ module.exports.getInquire = async (req, res) => {
 //getsingle request 
 module.exports.getEnquire = async (req, res) => {
   try {
-    const CourseData = await CourseModal.findById({ _id: req.params.id });
-    res.status(200).json({ data: CourseData, message: "course fetched" });
-  } catch (error) {
+    const InquireData = await InquireModal.findById({ _id: req.params.id });
+    res.status(200).json({ data: InquireData, message: "single inquire fetched" });
+  } catch (err) {
     res.status(404).json({ messege: err.message, status: err.status });
   }
 }
@@ -40,7 +40,7 @@ module.exports.PostInquire = async (req, res, upload) => {
       description: req.body.description,
     });
     await newInquire.save();
-    res.status(201).json({ data: newInquire, message: 'course has been addded' })
+    res.status(201).json({ data: newInquire, message: 'inquire has been addded' })
   } catch (err) {
     res.status(422).json({ message: err.message })
   }

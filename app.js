@@ -17,7 +17,7 @@ const swaggerOptions = {
       contact: {
         name: "BACKEND DEVELOPER",
       },
-      servers: ["http://localhost:4000"],
+      servers: ["http://localhost:5000"],
     },
   },
   apis: ["./route/*.js"],
