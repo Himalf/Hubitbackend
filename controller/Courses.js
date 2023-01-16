@@ -47,7 +47,7 @@ module.exports.PostCourse = async (req, res, upload) => {
 
 // Update request
 module.exports.updateCourse = (req, res) => {
-  CourseModal.updateOne({ _id: req.params.id }, { $set: req.body }, { $set: req?.file?.path }, (error) => {
+  CourseModal.updateOne({ _id: req.params.id }, { $set: req.body }, (error) => {
     if (error) {
       console.log(error);
       res.send(error);
