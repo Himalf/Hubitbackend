@@ -129,8 +129,7 @@ router.delete("/:id", Course.DeleteCourse);
 router.put(
   "/files/:id",
   upload.single("file"),
-  Course.updateCourse,
-  Course.updateCourseImage
+  Course.updateCourse
   // Course.PostCourse
 );
 
