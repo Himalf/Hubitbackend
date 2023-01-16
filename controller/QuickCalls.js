@@ -11,6 +11,15 @@ module.exports.getQuickCall = async (req, res) => {
         res.status(404).json({ messege: err.message, status: err.status })
     }
 }
+// get single request
+module.exports.getQuick = async (req, res) => {
+    try {
+        const CourseData = await CourseModal.findById({ _id: req.params.id });
+        res.status(200).json({ data: CourseData, message: "course fetched" });
+    } catch (error) {
+        res.status(404).json({ messege: err.message, status: err.status });
+    }
+}
 // post request 
 module.exports.PostQuickCall = async (req, res) => {
     const quickCallData = yup.object().shape({

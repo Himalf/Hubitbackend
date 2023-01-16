@@ -61,6 +61,7 @@ const multer = require("multer")
  */
 const router = express.Router();
 router.get("/", Category.getCategory);
+router.get("/:id", Category.getCategorys)
 /**
  * @swagger
  * /category:

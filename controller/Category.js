@@ -17,7 +17,15 @@ module.exports.getCategory = async (req, res) => {
     res.status(404).json({ messege: err.message, status: err.status });
   }
 };
-
+// get single category
+module.exports.getCategorys = async (req, res) => {
+  try {
+    const CourseData = await CourseModal.findById({ _id: req.params.id });
+    res.status(200).json({ data: CourseData, message: "course fetched" });
+  } catch (error) {
+    res.status(404).json({ messege: err.message, status: err.status });
+  }
+}
 // post request
 module.exports.PostCategory = async (req, res, upload) => {
   const CategoryData = req.body;

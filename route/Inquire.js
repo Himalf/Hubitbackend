@@ -23,6 +23,7 @@ const router = express.Router();
  */
 
 router.get("/", Inquire.getInquire);
+router.get("/:id", Inquire.getEnquire)
 router.post("/", Inquire.PostInquire);
 router.delete("/:id", Inquire.DeleteInquire);
 router.put('/:id', Inquire.updateInquire);

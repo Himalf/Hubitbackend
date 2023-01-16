@@ -23,7 +23,9 @@ const router = express.Router();
  */
 
 router.get("/", QuickCall.getQuickCall);
+router.get("/:id", QuickCall.getQuick)
 router.post("/", QuickCall.PostQuickCall);
+
 router.delete("/:id", QuickCall.DeleteQuickCall);
 router.put('/:id', QuickCall.updateQuickCall);
 module.exports = router;
