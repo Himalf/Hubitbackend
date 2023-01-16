@@ -14,7 +14,7 @@ module.exports.getQuickCall = async (req, res) => {
 // get single request
 module.exports.getQuick = async (req, res) => {
     try {
-        const CourseData = await CourseModal.findById({ _id: req.params.id });
+        const CourseData = await QuickCallModal.findById({ _id: req.params.id });
         res.status(200).json({ data: CourseData, message: "course fetched" });
     } catch (err) {
         res.status(404).json({ messege: err.message, status: err.status });

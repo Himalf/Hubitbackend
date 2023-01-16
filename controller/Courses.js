@@ -59,6 +59,19 @@ module.exports.updateCourse = (req, res) => {
     }
   });
 };
+// Update request for Image
+module.exports.updateCourseImage = (req, res, upload) => {
+  CourseModal.updateOne({ _id: req.params.id }, { $set: req?.file?.path }, (error) => {
+    if (error) {
+      console.log(error)
+      res.send(error);
+
+    }
+    else {
+      console.log(req.body)
+    }
+  })
+}
 // single task update
 // Delete request
 module.exports.DeleteCourse = (req, res) => {
