@@ -130,7 +130,7 @@ router.put(
   "/files/:id",
   upload.single("file"),
   Course.updateCourse
-  // Course.PostCourse
+
 );
 
 module.exports = router;
